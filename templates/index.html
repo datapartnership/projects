@@ -10,29 +10,45 @@
 <body>
 
     <div class="content-wrapper">
-
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg">
             <div class="container d-flex justify-content-center">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="https://wbdatalab.org" target="_blank">
                     <img src="{{ url_for('static', filename='images/data-lab.png') }}" alt="Data Lab Logo" class="logo-img">
                 </a>
             </div>
         </nav>
 
-
-        <!-- Main Content Area (Pushes footer down) -->
-        <main class="container mt-5">
+        <!-- Main Content -->
+        <main class="container mt-4">
             <h1 class="page-title">Data Lab Projects</h1>
 
-            <!-- Search Form -->
-            <form method="GET" action="{{ url_for('home') }}" class="d-flex mb-4">
+            <!-- New Description Text -->
+            <p class="data-lab-description">
+                The Data Lab supports World Bank operations – lending, technical assistance, and economic reporting – by coordinating ad-hoc teams of data analysts and specialists from across our organization. Through the Lab, teams solve global challenges using best practices in coding, code documentation, and data visualization.
+            </p>
+            <p class="data-lab-description">
+                Unlike a traditional data analysis, which results in a single-use report or visualization, Data Lab products are designed to be customized, reused, and updated, thereby building the capacity of the World Bank and partner organizations to quickly deliver complex data science solutions to pressing global challenges.
+            </p>
+            <p class="data-lab-description">
+                For more information about how we work, check out the intro page to this 
+                <a href="https://worldbank.github.io/ethiopia-economic-monitoring/docs/1-intro-to-data-lab.html" target="_blank">sample project</a>, or search our portfolio, below.
+            </p>
+            <p class="data-lab-description">
+                Got questions? Click the "Ask Us Anything" button on our <a href="https://wbdatalab.org" target="_blank">Lab Site</a>. 
+                <a href="mailto:datalab@123.com"></a>.
+            </p>            
+            <br>
+            </br>
+
+            <!-- Search Form (With Added Margin for Space) -->
+            <form method="GET" action="{{ url_for('home') }}" class="d-flex mb-5">
                 <input class="form-control me-2" type="search" name="q" value="{{ query }}" placeholder="Search projects..." aria-label="Search">
                 <button class="btn btn-primary" type="submit">Search</button>
                 <a href="{{ url_for('home') }}" class="btn btn-secondary ms-2">Clear</a>
             </form>
 
-        <!-- Project Cards -->
-        <div class="container project-container">
+            <!-- Project Cards -->
             <div class="masonry-grid">
                 {% for project in projects %}
                     {% if project['project-title'] and project['project-title'] != 'nan' %}  <!-- Skip NaN entries -->
@@ -51,16 +67,20 @@
                     {% endif %}
                 {% endfor %}
             </div>
-        </div>
         </main>
     </div>
+
+    <!-- Spacer to push footer down -->
+    <div class="footer-spacer"></div>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <p>© 2025 WB Data Lab. All Rights Reserved.</p>
         </div>
-    </footer>
 
+
+
+    
 </body>
 </html>

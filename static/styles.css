@@ -165,3 +165,57 @@ footer a:hover {
     width: 100%; /* One column on mobile */
   }
 }
+/* Logo Styling */
+.logo-img {
+  height: 160px; /* Adjust size as needed */
+  width: auto;
+  margin-right: 10px;
+}
+
+/* Data Lab Description */
+.data-lab-description {
+  font-size: 16px;
+  color: #333; /* Dark gray for readability */
+  line-height: 1.6;
+  max-width: 800px; /* Keep text nicely contained */
+  margin-bottom: 15px;
+}
+
+/* Styling for the sample project link */
+.data-lab-description a {
+  color: #310459; /* Dark purple */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.data-lab-description a:hover {
+  color: #BF5700; /* Burnt Orange */
+  text-decoration: underline;
+}
+/* Add extra space between last row of cards and footer */
+.project-container {
+  padding-bottom: 80px; /* Increased padding to prevent overlap */
+}
+/* Ensure the content wrapper takes full space */
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fix footer overlap by adding margin */
+footer {
+  background-color: #001E60;
+  color: #f8f9fa;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+  margin-top: 50px; /* Space between the last card and the footer */
+  flex-shrink: 0;
+}
+
+/* Ensure masonry grid has enough bottom space */
+.masonry-grid {
+  margin-bottom: 80px; /* Prevents last row from touching footer */
+}
+

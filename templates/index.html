@@ -31,24 +31,27 @@
                 <a href="{{ url_for('home') }}" class="btn btn-secondary ms-2">Clear</a>
             </form>
 
-            <!-- Project Cards -->
-            <div class="container project-container">
-                <div class="row">
-                    {% for project in projects %}
-                        <div class="col-md-4">
-                            <div class="card">
+        <!-- Project Cards -->
+        <div class="container project-container">
+            <div class="masonry-grid">
+                {% for project in projects %}
+                    {% if project['project-title'] and project['project-title'] != 'nan' %}  <!-- Skip NaN entries -->
+                    <div class="masonry-item">
+                        <div class="card">
+                            {% if project['image-link'] and project['image-link'] != 'nan' %}
                                 <img src="{{ url_for('static', filename=project['image-link'].replace('static/', '')) }}" class="card-img-top" alt="Project Image">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ project['project-title'] }}</h5>
-                                    <p class="card-text">{{ project['description'] }}</p>
-                                    <a href="{{ project['web-book-link'] }}" class="btn btn-primary">View More</a>
-                                </div>
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ project['project-title'] }}</h5>
+                                <p class="card-text">{{ project['description'] }}</p>
+                                <a href="{{ project['web-book-link'] }}" class="btn btn-primary">View More</a>
                             </div>
                         </div>
-                    {% endfor %}
-                </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
             </div>
-
+        </div>
         </main>
     </div>
 

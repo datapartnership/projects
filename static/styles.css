@@ -1,0 +1,125 @@
+/* Force Full-Height Layout */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Wrapper for Content */
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure Main Content Fills Space */
+main {
+  flex: 1;
+}
+
+/* Navbar */
+.navbar {
+  background-color: transparent !important; /* No background */
+  box-shadow: none; /* Remove any shadows */
+  border-bottom: none;
+  padding: 0; /* Remove extra spacing */
+}
+
+/* Logo Styling */
+.logo-img {
+  height: 160px; /* Adjust size as needed */
+  width: auto;  /* Maintain aspect ratio */
+  margin-right: 10px;
+}
+
+/* Align "Data Lab Projects" to the Left */
+.page-title {
+  text-align: left;
+  font-size: 24px; /* Reduce size */
+  color: #310459; /* Dark Purple */
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Fix Bootstrap Override for Buttons */
+.btn {
+  font-weight: bold !important;
+  text-transform: uppercase;
+}
+
+/* Primary Button - Burnt Orange */
+.btn-primary {
+  background-color: #BF5700 !important;  /* Burnt Orange */
+  border-color: #BF5700 !important;
+  color: #ffffff !important;
+}
+
+.btn-primary:hover {
+  background-color: #9C4600 !important; /* Darker Burnt Orange */
+  border-color: #9C4600 !important;
+  color: #ffffff !important;
+}
+
+/* Secondary Button - Burnt Orange Outline */
+.btn-secondary {
+  background-color: transparent !important;
+  border-color: #BF5700 !important;
+  border-radius: 50px !important;
+  color: #BF5700 !important;
+}
+
+.btn-secondary:hover {
+  background-color: #BF5700 !important;
+  border-color: #BF5700 !important;
+  color: #fff !important;
+}
+
+/* Cards */
+.card {
+  height: 480px;
+  background-color: #6699CC;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-footer {
+  position: absolute !important;
+  bottom: 0px !important;
+  right: 0px !important;
+}
+
+/* Footer Sticks to Bottom */
+footer {
+  background-color: #001E60;
+  color: #f8f9fa;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+footer a {
+  color: #f8f9fa;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #DF6B00;
+}
+/* Add space between cards and footer */
+.project-container {
+  margin-bottom: 50px; /* Adjust space as needed */
+}

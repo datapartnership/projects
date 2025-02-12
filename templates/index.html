@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Lab Projects</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="content-wrapper">
+
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container d-flex justify-content-center">
+                <a class="navbar-brand" href="#">
+                    <img src="{{ url_for('static', filename='images/data-lab.png') }}" alt="Data Lab Logo" class="logo-img">
+                </a>
+            </div>
+        </nav>
+
+
+        <!-- Main Content Area (Pushes footer down) -->
+        <main class="container mt-5">
+            <h1 class="page-title">Data Lab Projects</h1>
+
+            <!-- Search Form -->
+            <form method="GET" action="{{ url_for('home') }}" class="d-flex mb-4">
+                <input class="form-control me-2" type="search" name="q" value="{{ query }}" placeholder="Search projects..." aria-label="Search">
+                <button class="btn btn-primary" type="submit">Search</button>
+                <a href="{{ url_for('home') }}" class="btn btn-secondary ms-2">Clear</a>
+            </form>
+
+            <!-- Project Cards -->
+            <div class="container project-container">
+                <div class="row">
+                    {% for project in projects %}
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="{{ url_for('static', filename=project['image-link'].replace('static/', '')) }}" class="card-img-top" alt="Project Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ project['project-title'] }}</h5>
+                                    <p class="card-text">{{ project['description'] }}</p>
+                                    <a href="{{ project['web-book-link'] }}" class="btn btn-primary">View More</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 WB Data Lab. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

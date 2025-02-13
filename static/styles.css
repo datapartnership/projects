@@ -130,28 +130,42 @@ footer a:hover {
   margin-bottom: 50px; /* Adjust space as needed */
 }
 
-/* ✅ NEW: True Masonry Layout with Left-to-Right Ordering */
+/* ✅ True Masonry Grid */
 .masonry-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px; /* Space between items */
-  justify-content: flex-start; /* Ensures left-to-right order */
-}
-
-/* ✅ Cards Adjust to Content & Stay in Order */
-.masonry-item {
-  width: calc(33.333% - 20px); /* Three columns layout */
-}
-
-/* Cards in Masonry */
-.masonry-item .card {
-  display: flex;
-  flex-direction: column;
+  column-count: 3; /* 3 columns on large screens */
+  column-gap: 20px; /* Space between columns */
   width: 100%;
-  break-inside: avoid; /* Prevents cards from breaking across rows */
+}
+
+/* ✅ Ensure Cards Fit in Columns */
+.masonry-item {
+  display: inline-block; /* Ensures cards align correctly */
+  width: 100%; /* Allows automatic width */
+  margin-bottom: 20px; /* Space between rows */
+}
+
+/* ✅ Fix Card Styling */
+.masonry-item .card {
+  display: inline-block;
+  width: 100%;
+  break-inside: avoid; /* Prevents cards from breaking across columns */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* ✅ Responsive Adjustments */
+@media (max-width: 992px) {
+  .masonry-grid {
+      column-count: 2; /* 2 columns on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .masonry-grid {
+      column-count: 1; /* 1 column on mobile */
+  }
+}
+
 
 /* ✅ Responsive Adjustments */
 @media (max-width: 992px) {

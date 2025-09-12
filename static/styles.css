@@ -77,12 +77,17 @@ main {
 }
 
 /* Cards */
+
 .card {
-  background-color: #6699CC;
-  color: #ffffff;
+  background-color: #fff;     /* white background */
+  color: #000;                /* normal dark text */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
+
+
 
 /* Ensure Images Fit Properly */
 .card img {
@@ -98,8 +103,11 @@ main {
 }
 
 .card-body {
-  flex-grow: 1; /* Ensures text stretches properly */
+  flex-grow: 1;
+  background-color: #fff;     /* ensure body stays white */
+  color: #000;
 }
+
 
 /* Footer Sticks to Bottom */
 footer {

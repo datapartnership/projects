@@ -1,1 +1,3 @@
-dat-venv/
+.projectvenv/
+.venv/
+__pycache__/

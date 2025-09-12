@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Lab Projects</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Direct static paths -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/styles.css">
 </head>
 <body>
 
@@ -13,8 +14,8 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg">
             <div class="container d-flex justify-content-center">
-                <a class="navbar-brand" href="https://datalab.worldbank.org/" target="_blank">
-                    <img src="{{ url_for('static', filename='images/data-lab.png') }}" alt="Data Lab Logo" class="logo-img">
+                <a class="navbar-brand" href="https://datapartnership.org/" target="_blank">
+                    <img src="../static/images/ddp.png" alt="DDP Logo" class="logo-img">
                 </a>
             </div>
         </nav>
@@ -23,63 +24,347 @@
         <main class="container mt-4">
             <h1 class="page-title">Projects</h1>
 
-            <!-- New Description Text -->
+            <!-- Description Text -->
             <p class="data-lab-description">
-                The Data Lab supports World Bank operations – lending, technical assistance, and economic reporting – by coordinating ad-hoc teams of data analysts and specialists from across our organization. Through the Lab, teams solve global challenges using best practices in coding, code documentation, and data visualization.
+                The Development Data Partnership collaborates with teams to solve global challenges using best practices in coding, code documentation, and data visualization.
             </p>
             <p class="data-lab-description">
-                Unlike a traditional data analysis, which results in a single-use report or visualization, Data Lab products are designed to be customized, reused, and updated, thereby building the capacity of the World Bank and partner organizations to quickly deliver complex data science solutions to pressing global challenges.
+                Unlike traditional data analysis, which results in a single-use report or visualization, Partnership products are designed to be customized, reused, and updated, thereby building the capacity of partner organizations to quickly deliver complex data science solutions to pressing global challenges.
             </p>
             <p class="data-lab-description">
-                For more information about how we work, check out the intro page to this 
-                <a href="https://worldbank.github.io/ethiopia-economic-monitoring/docs/1-intro-to-data-lab.html" target="_blank">sample project</a>, or search our portfolio, below. Note some projects are not public and require permissions to access. Got questions? Click the "Ask The Lab Anything" button on our <a href="https://datalab.worldbank.org/" target="_blank">Data Lab Site</a>.
+                To learn more, following are sample projects. <strong>Note some projects are not public and require permissions to access.</strong> Got questions? Write to us at <a href="mailto:datapartnership@worldbank.org">datapartnership@worldbank.org</a>.
             </p>
-            <p class="data-lab-description">
-                 
-            </p>            
-            <br>
-            </br>
 
-            <!-- Search Form (With Added Margin for Space) -->
-            <form method="GET" action="{{ url_for('home') }}" class="d-flex mb-5">
-                <input class="form-control me-2" type="search" name="q" value="{{ query }}" placeholder="Search projects..." aria-label="Search">
-                <button class="btn btn-primary" type="submit">Search</button>
-                <a href="{{ url_for('home') }}" class="btn btn-secondary ms-2">Clear</a>
-            </form>
+            <br>
 
             <!-- Project Cards -->
             <div class="masonry-grid">
-                {% for project in projects %}
-                    {% if project['project-title'] and project['project-title'] != 'nan' %}  <!-- Skip NaN entries -->
+                
+                    
                     <div class="masonry-item">
                         <div class="card">
-                            {% if project['image-link'] and project['image-link'] != 'nan' %}
-                                <img src="{{ url_for('static', filename=project['image-link'].replace('static/', '')) }}" class="card-img-top" alt="Project Image">
-                            {% endif %}
+                            
+                                <img src="../static/images/sudan.png" class="card-img-top" alt="Project Image">
+                            
                             <div class="card-body">
-                                <h5 class="card-title">{{ project['project-title'] }}</h5>
-                                <p class="card-text">{{ project['description'] }}</p>
-                                <a href="{{ project['web-book-link'] }}" class="btn btn-primary">View More</a>
+                                <h5 class="card-title">Sudan | Poverty Monitoring</h5>
+                                <p class="card-text">We worked with the East Africa Poverty team to monitor poverty and economic trends in crisis-torn Sudan and South Sudan, using alternative data to analyze crop productivity, conflict, building damages, flooding, internet connectivity trends, nighttime lights trends, and urban expansion.</p>
+                                <a href="https://worldbank.github.io/sudan-poverty-monitoring" class="btn btn-primary" target="_blank">View More</a>
                             </div>
                         </div>
                     </div>
-                    {% endif %}
-                {% endfor %}
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/gaza.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">Gaza | Conflict Impact Analysis</h5>
+                                <p class="card-text">The 2023-25 Gaza-Israel conflict has had profound economic implications that extend beyond conventional measures. This project explored alternative data sources, such as synthetic-aperture radar and Mapbox Movement, to better comprehend the multifaceted economic impacts on the Gaza Strip.</p>
+                                <a href="https://worldbank.github.io/gaza-israel-conflict-impact-analysis/README.html" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/syr.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">Syria | Economic &amp; Earthquake Monitoring</h5>
+                                <p class="card-text">The conflict in Syria has inflicted a devastating impact on the inhabitants and economy, but measuring the true extent of the damage has been challenging.The Syria Economic Monitor team requested the WB Data Lab to explore use of alternative data to better understand changing trends in trade and economic activity, focusing on: port activity, surface cross-border transport routes, changes in observed agricultural production, observed nighttime lights, and reported conflict.</p>
+                                <a href="https://datapartnership.org/syria-economic-monitor/README.html" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/iraq.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">Iraq | Economic Monitoring</h5>
+                                <p class="card-text">We supported the Iraq country economics team in using alternative data to analze trends in conflict, nighttime lights, maritime traffic, and construction activity. </p>
+                                <a href="https://worldbank.github.io/iraq-economic-monitoring/" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/iraq-trans.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">Iraq | Baghdad Transport Planning</h5>
+                                <p class="card-text">For the MENA transport team, we used Waze and remote sensing data to monitor traffic trends. </p>
+                                <a href="https://worldbank.github.io/iraq-baghdad-transport-planning/README.html" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/iran.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">Iran | Economic Monitoring</h5>
+                                <p class="card-text">Working with the Iran country economics team, we used alternative data to help monitor key economic trends. </p>
+                                <a href="https://worldbank.github.io/iran-economic-monitoring/" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/phil-heat.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">Philippines | Understanding Impacts of Excess Heat in Filipino Cities</h5>
+                                <p class="card-text">The project empowers urban Philippines Local Government Units to take preventative and real-time action to mitigate the impacts of heatwaves through provision of more timely and granular data products.</p>
+                                <a href="https://datapartnership.org/heatwaves-in-the-philippines/README.html" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/leb.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">Lebanon | Economic Monitoring</h5>
+                                <p class="card-text">Significant data constraints are a major concern for the Lebanon country economics team. The team used lternative data to support analysis of the Lebanon economic growth, conflict, demographics, and refugee dynamics.</p>
+                                <a href="https://datapartnership.org/lebanon-economic-monitor/README.html" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/myan.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">Myanmar | Economic Monitoring</h5>
+                                <p class="card-text">Facing Covid, coups, and conflict, the Myanmar country economics team is challenged to fuifill its macroeconomic monitoring responsibilities.The Lab experimented with alternative data to understand changing trends in conflict, crop production, nighttime lights, and population movement.</p>
+                                <a href="https://datapartnership.org/myanmar-economic-monitor/README.html" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/niger.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">Niger | Economic Monitoring</h5>
+                                <p class="card-text">The West Africa Prosperity Team requested support for using alternative data to better understand economic trends in Niger following a coup and civil unrest. We analyzed crop productivity trends, mapped conflict, monitored nighttime lights, and explored population movement trends.</p>
+                                <a href="https://datapartnership.org/niger-economic-monitoring/README.html" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/red-sea.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">Red Sea | Monitoring the Red Sea Shipping Crisis</h5>
+                                <p class="card-text">The Red Sea shipping crisis is a global crisis that began in October 2023, when missile attacks on ships and tankers traversing the Red Sea caused hundreds of vessels to avoid the Suez Canal. We helped the MENA MTI team understand the impact of these attacks in shipping, trade, tourism, and emissions trends.</p>
+                                <a href="https://datapartnership.org/red-sea-monitoring/README.html" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/ethi.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">Ethiopia | Economic Monitoring</h5>
+                                <p class="card-text">The East Africa Poverty Team requested support for using alternative data to better understand economic and poverty trends in Ethiopia. We ana;yzed urban air quality trends, crop production, and sentiment towards recent socio-poltical crises through crowd-sourced survey data and Google search trends.</p>
+                                <a href="https://worldbank.github.io/ethiopia-economic-monitoring/README.html" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/eca.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">ECA | Urban Pulse Index</h5>
+                                <p class="card-text">Understanding how populations use urban space is crucial for assessing economic activity, societal resilience, and infrastructure accessibility. We are exploring how human mobility and urban space usage change in response to climate shocks, using mobile device data.</p>
+                                <a href="https://worldbank.github.io/urban-resilience-after-climate-shocks/notebooks/mobility/data-quality-assessment.html" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/turk.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">Turkiye | Earthquake Impact Analysis</h5>
+                                <p class="card-text">On February 6, 2023, a powerful 7.8 magnitude earthquake and series aftershocks wrought substantial damages across southeastern Turkiye and northwest Syria. The Turkiye Country Economist team requested advisory on data and analytical resources that may support measurement and monitoring of socio-economic impacts, including population displacement and business impacts.</p>
+                                <a href="https://datapartnership.org/turkiye-earthquake-impact/README.html" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/mor-earth.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">Morocco | Earthquake Impact Analysis</h5>
+                                <p class="card-text">In September 2023, a powerful 6.8 magnitude earthquake and a series of strong tremors and aftershocks wrought substantial damages in central Morocco. The Morocco Country Economist and Poverty Team requested advisory on data and analytical resources that may support measurement and monitoring of socio-economic impacts, including population displacement and business impacts.</p>
+                                <a href="https://datapartnership.org/morocco-earthquake-impact/README.html" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/waze.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">Python Package | Waze Data Analytics</h5>
+                                <p class="card-text">We created a python package to make raw Waze mobility data receivied through the Development Data Partnership easier to use in traffic analytics. </p>
+                                <a href="https://github.com/datapartnership/waze-data-analysis" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/ntl.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">Python Package | Nighttime Lights</h5>
+                                <p class="card-text">We built a Python packages for transforming NASA Black Marble nightimelights data into maps and charts in a snap.</p>
+                                <a href="https://worldbank.github.io/blackmarblepy/README.html" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/acled.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">Python Package | ACLED</h5>
+                                <p class="card-text">Conflict analytics are one of our most highly requested anlytics. To expedite this work, we created a Python package for analyzing ACLED data. </p>
+                                <a href="https://github.com/datapartnership/acled_conflict_analysis" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/kerala.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">India | Resilient Kerala</h5>
+                                <p class="card-text">Using  open data, we studied the impact of heatwaves and air quality in Kerala, specifically in Kochi (also known as Cochin) and Trivandrum for a Development Economics Data Group project. </p>
+                                <a href="https://datapartnership.org/india-kerala-resilience/README.html" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/course.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">Course | Using Alternative Data to Assess Immediate Economic Impacts of Crises Conflict and Natural Disasters</h5>
+                                <p class="card-text">This cutting-edge course is designed to equip students with the skills necessary to utilize alternative data sources for the immediate assessment of economic impacts caused by crises, such as conflicts and natural disasters.</p>
+                                <a href="https://reimagined-disco-g6q6ny1.pages.github.io/README.html" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="masonry-item">
+                        <div class="card">
+                            
+                                <img src="../static/images/bang-internet.png" class="card-img-top" alt="Project Image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">Bangladesh &amp; South Asia Region | Economic Monitoring to Understand Poverty Trends</h5>
+                                <p class="card-text">To understand the impacts of a coup in Bangladesh relative to the surrounding region, the team leveraged public and private sector data to analyze trends in employment, population movement, and others to fill information gaps.</p>
+                                <a href="https://worldbank.github.io/bangladesh-crisis-economic-monitoring/README.html" class="btn btn-primary" target="_blank">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
             </div>
         </main>
     </div>
 
-    <!-- Spacer to push footer down -->
-    <div class="footer-spacer"></div>
-
     <!-- Footer -->
-    <footer>
+    <footer class="mt-5">
         <div class="container">
             <p>© 2025 WB Data Lab. All Rights Reserved.</p>
         </div>
+    </footer>
 
-
-
-    
 </body>
 </html>

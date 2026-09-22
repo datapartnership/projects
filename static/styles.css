@@ -47,18 +47,33 @@ main {
 .btn {
   font-weight: bold !important;
   text-transform: uppercase;
+  margin-top: 8px;
 }
 
-/* Primary Button - Burnt Orange */
+/* Primary Button - Dark Purple */
 .btn-primary {
-  background-color: #BF5700 !important;  /* Burnt Orange */
-  border-color: #BF5700 !important;
+  background-color: #310459 !important;  /* Dark Purple */
+  border-color: #310459 !important;
   color: #ffffff !important;
 }
 
 .btn-primary:hover {
-  background-color: #9C4600 !important; /* Darker Burnt Orange */
-  border-color: #9C4600 !important;
+  background-color: #220340 !important; /* Darker Purple */
+  border-color: #220340 !important;
+  color: #ffffff !important;
+}
+
+/* Request Access Button - Orange-Red */
+.btn-request-access {
+  background-color: #E14D2A !important;  /* Orange-Red */
+  border-color: #E14D2A !important;
+  color: #ffffff !important;
+  margin-left: 8px;
+}
+
+.btn-request-access:hover {
+  background-color: #B93A1D !important; /* Darker Orange-Red */
+  border-color: #B93A1D !important;
   color: #ffffff !important;
 }
 
@@ -239,5 +254,35 @@ footer {
 /* Ensure masonry grid has enough bottom space */
 .masonry-grid {
   margin-bottom: 80px; /* Prevents last row from touching footer */
+}
+
+/* Project Search */
+.project-search-wrapper {
+  margin-bottom: 25px;
+}
+
+.project-search {
+  max-width: 500px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 15px;
+}
+
+.project-search:focus {
+  border-color: #310459;
+  box-shadow: 0 0 0 0.2rem rgba(49, 4, 89, 0.15);
+}
+
+.project-search-count {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.no-results-message {
+  color: #555;
+  font-size: 16px;
+  margin-top: 20px;
 }
 

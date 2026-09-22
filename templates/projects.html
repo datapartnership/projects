@@ -37,8 +37,14 @@
 
             <br>
 
+            <!-- Search -->
+            <div class="project-search-wrapper">
+                <input type="text" id="project-search" class="form-control project-search" placeholder="Search projects by title, description, or region...">
+                <p id="project-search-count" class="project-search-count"></p>
+            </div>
+
             <!-- Project Cards -->
-            <div class="masonry-grid">
+            <div class="masonry-grid" id="masonry-grid">
                 {% for project in projects %}
                     {% if project['project-title'] and project['project-title'] != 'nan' %}
                     <div class="masonry-item">
@@ -50,12 +56,16 @@
                                 <h5 class="card-title">{{ project['project-title'] }}</h5>
                                 <p class="card-text">{{ project['description'] }}</p>
                                 <a href="{{ project['web-book-link'] }}" class="btn btn-primary" target="_blank">View More</a>
+                                {% if project['requires-permission'] and project['requires-permission']|string|trim|lower == 'y' %}
+                                <a href="mailto:datapartnership@worldbank.org?subject={{ ('Request access to repo: ' ~ project['project-title']) | urlencode }}&body={{ 'Dear Partnership, I would like to request access to the referenced repo.' | urlencode }}" class="btn btn-request-access">Request Access</a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
                     {% endif %}
                 {% endfor %}
             </div>
+            <p id="no-results-message" class="no-results-message" hidden>No projects match your search.</p>
         </main>
     </div>
 
@@ -65,6 +75,38 @@
             <p>© 2025 Development Data Partnership. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- Client-side project search (static site, no backend) -->
+    <script>
+        (function () {
+            var input = document.getElementById('project-search');
+            var items = Array.prototype.slice.call(document.querySelectorAll('#masonry-grid .masonry-item'));
+            var countLabel = document.getElementById('project-search-count');
+            var noResults = document.getElementById('no-results-message');
+
+            function normalize(text) {
+                return (text || '').toLowerCase();
+            }
+
+            function filterProjects() {
+                var query = normalize(input.value).trim();
+                var visibleCount = 0;
+
+                items.forEach(function (item) {
+                    var title = normalize(item.querySelector('.card-title') && item.querySelector('.card-title').textContent);
+                    var description = normalize(item.querySelector('.card-text') && item.querySelector('.card-text').textContent);
+                    var matches = query === '' || title.indexOf(query) !== -1 || description.indexOf(query) !== -1;
+                    item.hidden = !matches;
+                    if (matches) visibleCount++;
+                });
+
+                countLabel.textContent = query === '' ? '' : (visibleCount + ' project' + (visibleCount === 1 ? '' : 's') + ' found');
+                noResults.hidden = visibleCount !== 0;
+            }
+
+            input.addEventListener('input', filterProjects);
+        })();
+    </script>
 
 </body>
 </html>

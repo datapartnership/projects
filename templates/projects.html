@@ -57,7 +57,7 @@
                                 <p class="card-text">{{ project['description'] }}</p>
                                 <a href="{{ project['web-book-link'] }}" class="btn btn-primary" target="_blank">View More</a>
                                 {% if project['requires-permission'] and project['requires-permission']|string|trim|lower == 'y' %}
-                                <a href="mailto:datapartnership@worldbank.org?subject={{ ('Request access to repo: ' ~ project['project-title']) | urlencode }}&body={{ 'Dear Partnership, I would like to request access to the referenced repo.' | urlencode }}" class="btn btn-request-access">Request Access</a>
+                                <a href="mailto:datapartnership@worldbank.org?subject={{ ('Request to Access Project Information and Code | ' ~ project['project-title']) | urlencode }}&body={{ 'Dear Development Data Partnership Colleagues,\n\nI am writing to request permission to access project information, analytics, and code repository for the above-referenced project.' | urlencode }}" class="btn btn-request-access">Request Access</a>
                                 {% endif %}
                             </div>
                         </div>

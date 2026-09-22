@@ -63,17 +63,17 @@ main {
   color: #ffffff !important;
 }
 
-/* Request Access Button - Orange-Red */
+/* Request Access Button - Burnt Orange */
 .btn-request-access {
-  background-color: #E14D2A !important;  /* Orange-Red */
-  border-color: #E14D2A !important;
+  background-color: #BF5700 !important;  /* Burnt Orange */
+  border-color: #BF5700 !important;
   color: #ffffff !important;
   margin-left: 8px;
 }
 
 .btn-request-access:hover {
-  background-color: #B93A1D !important; /* Darker Orange-Red */
-  border-color: #B93A1D !important;
+  background-color: #9C4600 !important; /* Darker Burnt Orange */
+  border-color: #9C4600 !important;
   color: #ffffff !important;
 }
 
